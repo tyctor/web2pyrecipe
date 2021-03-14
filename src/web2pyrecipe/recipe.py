@@ -35,7 +35,8 @@ class Recipe(object):
         source = self.options.get('source')
         default_app = self.options.get('project') or 'welcome'
             
-        shutil.rmtree(self.web2py_folder)
+        if os.path.exists(self.web2py_folder):
+            shutil.rmtree(self.web2py_folder)
         self._untar(source, self.web2py_folder)
 
         self._install_app(default_app)
