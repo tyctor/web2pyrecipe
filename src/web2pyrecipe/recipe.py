@@ -85,7 +85,7 @@ class Recipe(object):
                         arguments="'%s', logfile='%s'" % (
                             project,
                             self.options.get('logfile')),
-                        initialization=f"path = {self.web2py_folder}"))
+                        initialization=f"path = '{self.web2py_folder}'"))
         zc.buildout.easy_install.script_template = _script_template
         return scripts
 
